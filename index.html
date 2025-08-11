@@ -48,6 +48,24 @@
             margin-top: 30px;
             outline: none;
         }
+        /* Estilo pro contador */
+        #contador {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #b22222;
+            margin-top: 20px;
+            text-shadow: 1px 1px #f8cdda;
+            animation: fadeIn 2s ease-in-out, pulse 1.5s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -57,6 +75,9 @@
     <img id="slideshow" src="foto1.png" alt="Fotos da Gabrielle" />
     
     <p>Eu te amo, você é muito especial para mim, e não consigo ficar longe de você, to com saudades demais princesa. 💖</p>
+
+    <!-- Contador de tempo juntos -->
+    <p id="contador"></p>
     
     <button onclick="alert('Te amo demais!')">Clique aqui ❤️</button>
     
@@ -66,7 +87,8 @@
     </audio>
 
     <script>
-        const fotos = ["foto1.png", "foto2.png", "foto3.png", "weee.png", "morkk.png"]; // coloque os nomes das suas imagens aqui
+        // Slideshow
+        const fotos = ["foto1.png", "foto2.png", "foto3.png", "weee.png", "morkk.png"];
         let index = 0;
         const imgElement = document.getElementById('slideshow');
 
@@ -74,8 +96,24 @@
             index = (index + 1) % fotos.length;
             imgElement.src = fotos[index];
         }
+        setInterval(trocaFoto, 3000);
 
-        setInterval(trocaFoto, 3000); // troca a foto a cada 3 segundos
+        // Contador de tempo juntos
+        function atualizarContador() {
+            const inicio = new Date(2025, 6, 12, 11, 45); // Julho = 6
+            const agora = new Date();
+            const diff = agora - inicio;
+
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diff / (1000 * 60)) % 60);
+            const segundos = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("contador").textContent =
+                `Estamos juntos há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos 💖`;
+        }
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
     </script>
 </body>
 </html>
