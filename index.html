@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Para Gabrielle ❤️</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #5a1a01;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.2em;
+            text-shadow: 2px 2px #f8cdda;
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px auto;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+        img {
+            border-radius: 15px;
+            max-width: 80%;
+            height: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin: 20px 0;
+        }
+        button {
+            background-color: #ff6f91;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255,111,145,0.6);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff355e;
+        }
+        audio {
+            margin-top: 30px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oi, AMOOOR! ❤️</h1>
+    <p>Essa página é só pra você, feita com muito carinho por miiiiim.</p>
+    
+    <img id="slideshow" src="foto1.png" alt="Fotos da Gabrielle" />
+    
+    <p>Eu te amo, você é muito especial para mim, e não consigo ficar longe de você, to com saudades demais princesa. 💖</p>
+    
+    <button onclick="alert('Te amo demais!')">Clique aqui ❤️</button>
+    
+    <audio controls autoplay loop>
+      <source src="musica.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
+    </audio>
+
+    <script>
+        const fotos = ["foto1.png", "foto2.png", "foto3.png", "weee.png", "morkk.png"]; // coloque os nomes das suas imagens aqui
+        let index = 0;
+        const imgElement = document.getElementById('slideshow');
+
+        function trocaFoto() {
+            index = (index + 1) % fotos.length;
+            imgElement.src = fotos[index];
+        }
+
+        setInterval(trocaFoto, 3000); // troca a foto a cada 3 segundos
+    </script>
+</body>
+</html>
